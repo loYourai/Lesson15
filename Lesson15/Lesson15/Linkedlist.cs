@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp1
 {
+    /*
     public class LinkedList<T>
     {
         private Item head;
@@ -157,4 +158,7 @@ namespace ConsoleApp1
             public Item Next { get; set; }
         }
     }
+    */
+
+
 }
