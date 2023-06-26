@@ -20,7 +20,29 @@ const int MaximumNameLenght = 50;
 
  int Yes = 0;
     int No = 0;
+void Golos()
+{
+    Console.WriteLine("Если вы за напишите 2, если напишите 3");
+    int golos = int.Parse(Console.ReadLine());
+    int a = 2;
+    if (golos == a)
+    {
+        
+        //int av = 0;
+        // Yes =  av++;
+        Yes++;
+        
 
+        //File.AppendAllText(FileName, $"{Yes} ");
+    }
+    int b = 3;
+    if (golos == b)
+    {
+        No++;
+    }
+    File.AppendAllText(FileName, $"{Yes} {No}");
+
+}
 void Showalltopic()
 {
 
@@ -37,55 +59,11 @@ void Showalltopic()
         Console.WriteLine($"{meetingContent[0],20} "
             + $"{Yes,20} "
             + $"{No,20}");
+
+        
     }   
-        void Golos()
-        {
-            Console.WriteLine("Если вы за напишите 2, если напишите 3");
-            int golos = int.Parse(Console.ReadLine());
-            int a = 2;
-            if (golos == a)
-            {
-            //int av = 0;
-            // Yes =  av++;
-            Yes++;
-            
-            File.AppendAllText(FileName, $"{Yes} ");
-        }
-            int b = 3;
-            if (golos == b)
-            {
-                No++;
-            }
-        File.AppendAllText(FileName, $"{Yes} {No}" );
-        
-    }
-       
-
-
-        
-        Console.WriteLine("Нажмите 5 чтобы голосовать");
-        Console.WriteLine("Если не хотите нажмите 6");
-        var keyInfo = Console.ReadKey();
-
-        switch (keyInfo.Key)
-        {
-            case ConsoleKey.D5:
-                Golos();
-                break;
-            case ConsoleKey.D6:
-                Exit();
-                break;
-
-            default: break;
-        }
-    //File.AppendAllText(FileName, $"{room}" + Environment.NewLine);
-}
-    
-
-
-    
-
-
+      Console.ReadLine();
+}     
 
 
 
@@ -104,7 +82,7 @@ void Exit()
 void Menu()
 {
     Console.Clear();
-    
+    Console.WriteLine("4. Голосовать");
     Console.WriteLine("3. Show all topic");
     Console.WriteLine("2. Add vote topic");
     Console.WriteLine("1. Exit ");
@@ -127,8 +105,11 @@ while (true)
         case ConsoleKey.D3:
             Showalltopic();
             break;
-            
-        
+        case ConsoleKey.D4:
+            Golos();
+            break;
+
+
         default: break;
     }
 }
