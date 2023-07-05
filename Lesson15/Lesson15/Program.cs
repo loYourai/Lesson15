@@ -9,17 +9,42 @@ const int MaximumRoomLenght = 25;
 const int MaximumNameLenght = 50;
 
 
+const string FileName2 = "vote topic3.txt";
+const int MaximumRoomLenght2 = 25;
+const int MaximumNameLenght2 = 50;
 
 
 
 
 
 
+int[] golos2;
+    golos2 = new int[2];
 
 
 
- int Yes = 0;
-    int No = 0;
+
+void showgolos()
+{
+    Console.WriteLine( $"{"Yes",20}"
+        + $"{"No",20}");
+    var fileContent = File.ReadAllLines(FileName2);
+
+    foreach (var line in fileContent)
+    {
+        var meetingContent = line.Split(",");
+
+        Console.WriteLine($"{golos2[0],20} "
+            + $"{golos2[1],20}");
+
+
+    }
+    Console.ReadLine();
+}
+
+
+
+
 void Golos()
 {
     Console.WriteLine("Если вы за напишите 2, если напишите 3");
@@ -27,38 +52,36 @@ void Golos()
     int a = 2;
     if (golos == a)
     {
-        
+
         //int av = 0;
         // Yes =  av++;
-        Yes++;
-        
+        golos2[0]++;
+       
 
         //File.AppendAllText(FileName, $"{Yes} ");
     }
     int b = 3;
     if (golos == b)
     {
-        No++;
+        golos2[1]++;
     }
-    File.AppendAllText(FileName, $"{Yes} {No}");
+    File.AppendAllText(FileName2, $"{golos2[0]} {golos2[1]}");
 
 }
 void Showalltopic()
 {
 
     Console.WriteLine($"{"Topic",20}"
-        + $"{"Yes",20}"  
-        + $"{"No",20}");
+       );
 
     var fileContent = File.ReadAllLines(FileName);
-
+    
     foreach (var line in fileContent)
     {
         var meetingContent = line.Split(",");
 
         Console.WriteLine($"{meetingContent[0],20} "
-            + $"{Yes,20} "
-            + $"{No,20}");
+            );
 
         
     }   
@@ -82,6 +105,7 @@ void Exit()
 void Menu()
 {
     Console.Clear();
+    Console.WriteLine("5. показать результаты");
     Console.WriteLine("4. Голосовать");
     Console.WriteLine("3. Show all topic");
     Console.WriteLine("2. Add vote topic");
@@ -107,6 +131,9 @@ while (true)
             break;
         case ConsoleKey.D4:
             Golos();
+            break;
+        case ConsoleKey.D5:
+            showgolos();
             break;
 
 
