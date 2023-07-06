@@ -21,7 +21,14 @@ const int MaximumNameLenght2 = 50;
 int[] golos2;
     golos2 = new int[2];
 
+//golos2[188]; // Нужный массив содержащий текстовые файлы
 
+//for (int i = 0; i < golos2.Length; i++)
+//{
+
+//    golos2[i].ReadToEnd(FileName2);
+    //Проичитать каким-то образом текстовый файл из массива
+//}
 
 
 void showgolos()
@@ -29,7 +36,7 @@ void showgolos()
     Console.WriteLine( $"{"Yes",20}"
         + $"{"No",20}");
     var fileContent = File.ReadAllLines(FileName2);
-
+    golos2[0] = fileContent.Length;
     foreach (var line in fileContent)
     {
         var meetingContent = line.Split(",");
